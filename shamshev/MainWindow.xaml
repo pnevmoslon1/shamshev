@@ -7,18 +7,55 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="23*"/>
-            <RowDefinition Height="93*"/>
-            <RowDefinition Height="150*"/>
-            <RowDefinition Height="122*"/>
-            <RowDefinition Height="46*"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="171*"/>
-            <ColumnDefinition Width="171*"/>
-            <ColumnDefinition Width="343*"/>
-            <ColumnDefinition Width="115*"/>
-        </Grid.ColumnDefinitions>
+        
+        <Grid>
+            <!-- Используем Grid с тремя строками -->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <!-- Заголовок в первой строке -->
+            <TextBlock Text="Заголовок приложения" 
+                   FontSize="24" FontWeight="Bold" 
+                   HorizontalAlignment="Center" 
+                   Margin="10" />
+
+            <!-- Основное содержимое во второй строке -->
+            <Grid Grid.Row="1" Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Левая часть: Список или информация -->
+                <StackPanel Grid.Column="0" Margin="5">
+                    <TextBlock Text="Содержимое:" FontSize="18" Margin="5"/>
+                    <ListBox>
+                        <ListBoxItem>Элемент 1</ListBoxItem>
+                        <ListBoxItem>Элемент 2</ListBoxItem>
+                        <ListBoxItem>Элемент 3</ListBoxItem>
+                    </ListBox>
+                </StackPanel>
+
+                <!-- Правая часть: Панель управления -->
+                <StackPanel Grid.Column="1" Margin="5">
+                    <TextBlock Text="Управление" FontSize="18" Margin="5"/>
+                    <Button Content="Кнопка 1" Width="100" Margin="5"/>
+                    <Button Content="Кнопка 2" Width="100" Margin="5"/>
+                    <Button Content="Кнопка 3" Width="100" Margin="5"/>
+                </StackPanel>
+            </Grid>
+
+            <!-- Нижняя панель инструментов -->
+            <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="10">
+                <Button Content="ОК" Width="75" Margin="5"/>
+                <Button Content="Отмена" Width="75" Margin="5"/>
+            </StackPanel>
+        </Grid>
     </Grid>
+
+
+    
 </Window>
